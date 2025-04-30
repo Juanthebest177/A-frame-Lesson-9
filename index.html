@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8" />
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v4.0.1/dist/aframe-physics-system.min.js"></script>
+    <script src="game.js"> </script>
+    <script src="movement.js"></script>
+  </head>
+
+  <body>
+    <a-scene physics="gravity: 0">
+
+      <a-entity id="look" kinematic-body look-controls wasd-controls="acceleration: 200" camera position="-10 -18 -20"
+        rotation="-6 -0.5 0">
+        <a-entity position="-5 -5 -12">
+          <a-entity position="-0.6 0.13 0"
+            text="font: aileronsemibold; width: 12; color: white; value: TURTLES\nRESCUED"></a-entity>
+          <a-entity id="turtlesRemainingText" position="-8 0.3 0"
+            text="font: exo2bold; align: center; width: 30; color: white; value: 5"></a-entity>
+          <a-entity id="gameOverText" position="15 0.3 0" text="font: exo2bold; align: center; width: 30; color: white;">
+          </a-entity>
+        </a-entity>
+      </a-entity>
+
+      <a-assets>
+        <img id="space" src="assets/space.jpeg">
+        <a-asset-item id="enviroment" src="assets/islands/scene.gltf"></a-asset-item>
+        <a-asset-item id="rs" src="assets/researcher/scene.gltf"></a-asset-item>
+        <a-asset-item id="turtle" src="assets/cartoon_turtle/scene.gltf"></a-asset-item>
+      </a-assets>
+      
+      <a-sky src="#space" rotation="-180 10 0"></a-sky>
+
+      <a-entity gltf-model="#enviroment" position="-10 -25 -12" scale="3 3 3"></a-entity>
+
+      <a-entity gltf-model="#turtle" id="turtle1" position="-4 -24 5" scale="3 3 3"
+       animation-mixer="clip: Animation" game-play static-body="shape: sphere; sphereRadius: 13"></a-entity>
+
+      <a-entity gltf-model="#turtle" id="turtle2" position="-25 -19 16" scale="3 3 3"
+       animation-mixer="clip: Animation" game-play static-body="shape: sphere; sphereRadius: 13"></a-entity>
+
+       <a-entity gltf-model="#turtle" id="turtle3" position="27 -24 10" scale="3 3 3"
+       animation-mixer="clip: Animation" game-play static-body="shape: sphere; sphereRadius: 13"></a-entity>
+     
+    </a-scene>
+  </body>
+
+</html>
